@@ -1,0 +1,63 @@
+name: Deploy Cloud-Native Profile Platform
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write   # Required for OIDC
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # -------------------------
+      # 1. Checkout repository
+      # -------------------------
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # -------------------------
+      # 2. Configure AWS (OIDC)
+      # -------------------------
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      # -------------------------
+      # 3. Deploy Frontend (S3)
+      # -------------------------
+      - name: Deploy frontend to S3
+        run: |
+          aws s3 sync frontend/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
+
+      # -------------------------
+      # 4. Invalidate CloudFront
+      # -------------------------
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*"
+
+      # -------------------------
+      # 5. Package Lambda
+      # -------------------------
+      - name: Package Lambda function
+        run: |
+          cd backend/lambda
+          zip function.zip visitor_counter.py
+
+      # -------------------------
+      # 6. Deploy Lambda
+      # -------------------------
+      - name: Deploy Lambda function
+        run: |
+          aws lambda update-function-code \
+            --function-name ${{ secrets.LAMBDA_FUNCTION_NAME }} \
+            --zip-file fileb://backend/lambda/function.zip
