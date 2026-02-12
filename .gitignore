@@ -1,0 +1,15 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+
+# Mac
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Node (لو استخدمت مستقبلاً)
+node_modules/
