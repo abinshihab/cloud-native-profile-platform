@@ -22,13 +22,19 @@ resource "aws_lambda_function" "counter" {
 }
 
 resource "aws_lambda_function_url" "counter_url" {
-  function_name      = aws_lambda_function.counter.function_name
+  function_name = aws_lambda_function.counter.function_name
   authorization_type = "NONE"
 
   cors {
-    allow_origins = ["*"]
-    allow_methods = ["GET", "OPTIONS"]
-    allow_headers = ["content-type"]
-    max_age       = 3600
+    allow_origins = [
+      "https://d2owoibyqwgf10.cloudfront.net",
+      "https://www.awsbenshehab.net"
+    ]
+
+    allow_methods = ["GET"]
+    allow_headers = ["*"]
+    max_age       = 86400
   }
 }
+
+

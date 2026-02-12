@@ -12,6 +12,7 @@ variable "project_name" {
 
 variable "site_bucket_name" {
   type        = string
+  default = "www.awsbenshehab.net"
   description = "S3 bucket name for the website (must be globally unique)"
 }
 

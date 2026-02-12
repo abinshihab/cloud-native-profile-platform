@@ -42,3 +42,11 @@ resource "aws_iam_role_policy_attachment" "lambda_attach" {
   role       = aws_iam_role.lambda_role.name
   policy_arn = aws_iam_policy.lambda_policy.arn
 }
+resource "aws_lambda_permission" "allow_apigw" {
+  statement_id  = "AllowExecutionFromAPIGateway"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.counter.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_apigatewayv2_api.visitor_api.execution_arn}/*/*"
+}
+

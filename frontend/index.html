@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Ahmed Bin Shehab | Cloud & DevOps Engineer</title>
+  <title>Ahmed Bin Shehab | Cloud Architect & DevOps Strategist</title>
   <meta name="description"
-        content="Cloud & DevOps Engineer with 15+ years of enterprise experience in infrastructure, automation, CI/CD, and cloud-native platforms." />
+        content="Cloud Architect & DevOps Strategist. Designing scalable, secure cloud-native systems using AWS, Terraform, Serverless & AI-driven CloudOps." />
 
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -15,207 +15,262 @@
 
 <!-- ================= NAVBAR ================= -->
 <header class="navbar">
-  <div class="nav-container">
-    <div class="logo">Ahmed</div>
+  <div class="logo">Ahmed</div>
 
-    <button class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
-    </button>
-
-    <nav id="nav-menu">
-      <a href="#about" class="nav-link">About</a>
-      <a href="#skills" class="nav-link">Skills</a>
-      <a href="#portfolio" class="nav-link">Portfolio</a>
-      <a href="#experience" class="nav-link">Experience</a>
-      <a href="#contact" class="nav-link">Contact</a>
-    </nav>
-  </div>
+  <nav>
+    <a href="#build">What I Build</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#consulting">Consulting</a>
+    <a href="#credentials">Certifications</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
 <!-- ================= HERO ================= -->
-<section class="hero">
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
 
-  <div class="profile-photo">
-    <img src="assets/profile.jpg" alt="Ahmed Bin Shehab">
+  <div class="hero-content">
+    <div class="profile-wrapper">
+      <img src="assets/profile.jpg" alt="Ahmed Bin Shehab" class="profile-img" />
+      <div class="profile-glow" aria-hidden="true"></div>
+    </div>
+
+    <h1 class="gradient-text fade-in fade-delay-1">Ahmed Hussein Bin Shehab</h1>
+    <h2 class="fade-in fade-delay-2">Cloud Architect · DevOps Strategist · AI-Driven CloudOps</h2>
+
+    <p class="hero-text fade-in fade-delay-3">
+      I design secure, scalable cloud-native systems that reduce operational risk,
+      accelerate engineering velocity, and modernize enterprise infrastructure using AWS,
+      Terraform, and automation-first DevOps practices.
+    </p>
+
+    <div class="hero-buttons fade-in fade-delay-3">
+      <a href="#contact" class="btn primary">Work With Me</a>
+      <a href="assets/Ahmed_Bin_Shehab_CV.pdf" class="btn outline">Download CV</a>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="social-links fade-in fade-delay-3" aria-label="Social links">
+      <a class="social-btn github" href="https://github.com/abinshihab" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <!-- GitHub SVG -->
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.18-3.37-1.18-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.61.07-.61 1 .08 1.53 1.03 1.53 1.03.9 1.54 2.36 1.1 2.94.84.09-.65.35-1.1.63-1.35-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.26-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.8c.85 0 1.71.11 2.51.34 1.9-1.29 2.74-1.02 2.74-1.02.55 1.38.2 2.39.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85v2.74c0 .26.18.58.69.48A10 10 0 0 0 12 2z"/>
+        </svg>
+      </a>
+
+      <a class="social-btn linkedin" href="https://linkedin.com/in/ahmedbinshehab" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <!-- LinkedIn SVG -->
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.05c.53-1 1.83-2.05 3.77-2.05C20.1 8.45 22 10.4 22 14.1V23h-4v-8.1c0-1.93-.03-4.4-2.68-4.4-2.68 0-3.09 2.09-3.09 4.25V23h-4V8.5z"/>
+        </svg>
+      </a>
+
+      <a class="social-btn dev" href="https://dev.to/" target="_blank" rel="noopener noreferrer" aria-label="Dev.to">
+        <!-- Dev.to SVG -->
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7.62 7.36c.13-.1.3-.16.48-.16h2.3c1.55 0 2.7.88 2.7 2.84v4c0 1.97-1.15 2.84-2.7 2.84H8.1c-.18 0-.35-.06-.48-.16-.18-.13-.28-.33-.28-.55V7.91c0-.22.1-.42.28-.55zm2.46 9.67c.76 0 1.22-.4 1.22-1.34V9.31c0-.94-.46-1.34-1.22-1.34H9.02v9.06h1.06zM15.5 7.2h3c.46 0 .83.38.83.84v.58c0 .46-.37.84-.83.84h-1.08v8.7c0 .46-.37.84-.83.84h-.18c-.46 0-.83-.38-.83-.84v-8.7H15.5c-.46 0-.83-.38-.83-.84v-.58c0-.46.37-.84.83-.84z"/>
+          <path d="M2.5 6.3C1.12 6.3 0 7.42 0 8.8v6.4c0 1.38 1.12 2.5 2.5 2.5h19c1.38 0 2.5-1.12 2.5-2.5V8.8c0-1.38-1.12-2.5-2.5-2.5h-19z" opacity=".35"/>
+        </svg>
+      </a>
+    </div>
+
+    <p class="visitors fade-in fade-delay-3">
+      👀 Visitors: <span id="visitor-count">—</span>
+    </p>
+
+    <div class="scroll-indicator" aria-hidden="true">↓</div>
   </div>
-
-  <h1>Ahmed Hussein Bin Shehab</h1>
-  <p class="hero-role">Cloud & DevOps Engineer</p>
-
-  <p class="hero-text">
-    Cloud & DevOps Engineer with 15+ years of enterprise IT experience.
-    I design, automate, and operate secure cloud-native platforms using AWS,
-    Terraform, and CI/CD pipelines, with a strong focus on reliability,
-    automation, and scalable system design.
-  </p>
-
-  <div class="hero-buttons">
-    <a href="#contact" class="btn primary">Hire Me</a>
-    <a href="Ahmed_Bin_Shehab_CV.pdf" class="btn secondary" download>Download CV</a>
-  </div>
-
-  <div class="visitor-counter">
-    👀 Visitors:
-    <span id="visitor-count">Loading...</span>
-  </div>
-
 </section>
 
-<!-- ================= ABOUT ================= -->
-<section id="about" class="section">
-  <h2 class="section-title">About</h2>
-
-  <p>
-    Cloud & DevOps Engineer with over 15 years of experience across enterprise IT,
-    infrastructure operations, and cloud engineering. Strong background in
-    Windows and Linux systems, identity management, networking, and incident response.
-  </p>
-
-  <p>
-    Actively delivering cloud-native and Infrastructure-as-Code solutions using
-    AWS, Terraform, Jenkins, and GitHub Actions. Experienced in operating production
-    environments, reducing operational risk, and supporting business-critical
-    workloads in regulated government environments.
-  </p>
+<!-- ================= IMPACT METRICS ================= -->
+<section class="impact">
+  <div class="impact-grid">
+    <div class="impact-item">
+      <h3>15+</h3>
+      <p>Years Enterprise IT</p>
+    </div>
+    <div class="impact-item">
+      <h3>1000+</h3>
+      <p>Users Supported</p>
+    </div>
+    <div class="impact-item">
+      <h3>8+</h3>
+      <p>Cloud Certifications</p>
+    </div>
+    <div class="impact-item">
+      <h3>60%</h3>
+      <p>Operational Automation Gain</p>
+    </div>
+  </div>
 </section>
 
-<!-- ================= SKILLS ================= -->
-<section id="skills" class="section">
-  <h2 class="section-title">Core Skills</h2>
+<!-- ================= WHAT I BUILD ================= -->
+<section id="build" class="section alt">
+  <h3>What I Build</h3>
 
-  <div class="skills-box">
-
-    <div class="skill">
-      <div class="skill-header"><span>Cloud Platforms (AWS, Azure)</span><span>75%</span></div>
-      <div class="skill-bar"><div class="skill-progress" data-percent="75"></div></div>
+  <div class="build-grid">
+    <div class="build-card">
+      <h4>Secure Cloud Foundations</h4>
+      <p>
+        Multi-environment AWS architectures with Terraform, IAM hardening,
+        logging, cost optimization, and production-grade design patterns.
+      </p>
     </div>
 
-    <div class="skill">
-      <div class="skill-header"><span>DevOps & CI/CD (GitHub Actions, Jenkins)</span><span>70%</span></div>
-      <div class="skill-bar"><div class="skill-progress" data-percent="70"></div></div>
+    <div class="build-card">
+      <h4>CI/CD & DevOps Acceleration</h4>
+      <p>
+        Automated pipelines using GitHub Actions and Jenkins with validation,
+        testing, and safe deployment strategies.
+      </p>
     </div>
 
-    <div class="skill">
-      <div class="skill-header"><span>Infrastructure as Code (Terraform)</span><span>70%</span></div>
-      <div class="skill-bar"><div class="skill-progress" data-percent="70"></div></div>
+    <div class="build-card">
+      <h4>Serverless & Cloud APIs</h4>
+      <p>
+        Cost-efficient HTTP APIs and event-driven systems using Lambda,
+        API Gateway, DynamoDB, and observability integration.
+      </p>
     </div>
+  </div>
+</section>
 
-    <div class="skill">
-      <div class="skill-header"><span>Automation & Scripting (PowerShell, Bash)</span><span>80%</span></div>
-      <div class="skill-bar"><div class="skill-progress" data-percent="80"></div></div>
-    </div>
+<!-- ================= PROJECTS ================= -->
+<section id="projects" class="section">
+  <h3>Signature Projects</h3>
 
-    <div class="skill">
-      <div class="skill-header"><span>Enterprise Infrastructure & Operations</span><span>85%</span></div>
-      <div class="skill-bar"><div class="skill-progress" data-percent="85"></div></div>
-    </div>
+  <div class="project-card">
+    <h4>Cloud-Native Profile Platform</h4>
+    <p>
+      Production-ready serverless architecture deployed with Terraform,
+      CloudFront CDN, HTTPS, and HTTP API analytics.
+    </p>
+    <p class="project-tech">AWS · CloudFront · Lambda · HTTP API · DynamoDB · Terraform</p>
+  </div>
 
+  <div class="project-card">
+    <h4>Terraform Secure Foundation</h4>
+    <p>
+      Reusable enterprise modules for VPC, IAM, networking, and environment isolation
+      following security-first principles.
+    </p>
+    <p class="project-tech">Terraform · AWS · Security Architecture</p>
   </div>
 </section>
 
 <!-- ================= EXPERIENCE ================= -->
-<section id="experience" class="section experience-section">
-  <h2 class="section-title">Experience</h2>
+<section id="experience" class="section alt">
+  <h3>Experience</h3>
 
-  <!-- CURRENT ROLE -->
-  <div class="experience-item">
-    <h3>Senior Infrastructure Engineer – Cloud & DevOps</h3>
-    <span class="experience-meta">Abu Dhabi Customs · Jan 2018 – Present</span>
-    <ul>
-      <li>Operate and support enterprise infrastructure environments with high availability and security requirements.</li>
-      <li>Administer Windows and Linux servers supporting authentication, file services, and internal platforms.</li>
-      <li>Lead incident response, root cause analysis, and secure change management.</li>
-      <li>Design and test AWS environments using EC2, VPC, ALB, IAM, and CloudWatch.</li>
-      <li>Build Infrastructure-as-Code using Terraform for controlled deployments.</li>
-      <li>Apply DevOps practices including CI/CD, automation-first workflows, and monitoring.</li>
-      <li>Support environments serving 1,000+ enterprise users.</li>
-    </ul>
+  <p><strong>Senior Infrastructure Engineer – Cloud & DevOps</strong><br/>
+     Abu Dhabi Customs (2018 – Present)</p>
+
+  <ul>
+    <li>Operate and modernize enterprise infrastructure serving 1,000+ users</li>
+    <li>Architect AWS environments using modular Infrastructure as Code</li>
+    <li>Led incident response and enterprise hardening strategies</li>
+    <li>Introduced automation reducing manual operations by ~60%</li>
+  </ul>
+
+  <p><strong>Infrastructure Support Engineer</strong><br/>
+     Abu Dhabi Customs (2008 – 2017)</p>
+</section>
+
+<!-- ================= CERTIFICATIONS ================= -->
+<section id="credentials" class="credentials">
+  <h3>Certifications & Credentials</h3>
+
+  <div class="cred-grid">
+    <div class="cred-card">
+      <h4>AWS Solutions Architect – Associate</h4>
+      <p>Architecting scalable, secure AWS environments.</p>
+    </div>
+
+    <div class="cred-card">
+      <h4>HashiCorp Terraform Associate</h4>
+      <p>Infrastructure as Code design & modular architecture.</p>
+    </div>
+
+    <div class="cred-card">
+      <h4>Azure Solutions Architect Expert (AZ-305)</h4>
+      <p>Enterprise cloud strategy & hybrid architectures.</p>
+    </div>
+
+    <div class="cred-card">
+      <h4>Azure Developer Associate (AZ-204)</h4>
+      <p>Building and operating cloud applications on Azure.</p>
+    </div>
+
+    <div class="cred-card">
+      <h4>Azure AI Engineer Associate</h4>
+      <p>AI-driven cloud integration & automation workflows.</p>
+    </div>
+
+    <div class="cred-card">
+      <h4>OCI Architect & Developer</h4>
+      <p>Multi-cloud capability across AWS, Azure, and OCI.</p>
+    </div>
   </div>
+</section>
 
-  <!-- PREVIOUS ROLE -->
-  <div class="experience-item">
-    <h3>IT Engineer – Infrastructure Support</h3>
-    <span class="experience-meta">Abu Dhabi Customs · Nov 2008 – Dec 2017</span>
-    <ul>
-      <li>Delivered L1–L3 support for enterprise IT environments.</li>
-      <li>Installed, configured, and maintained Windows Server and end-user systems.</li>
-      <li>Supported on-prem infrastructure including networking, printers, and shared services.</li>
-      <li>Assisted in system upgrades, deployments, and user lifecycle management.</li>
-      <li>Maintained asset, incident, and change records within ITSM systems.</li>
-    </ul>
+<!-- ================= CONSULTING ================= -->
+<section id="consulting" class="section">
+  <h3>Consulting & Architecture Services</h3>
+
+  <div class="build-grid">
+    <div class="build-card">
+      <h4>Cloud Architecture Review</h4>
+      <p>Security, scalability, cost optimization, resilience, and architecture maturity.</p>
+    </div>
+
+    <div class="build-card">
+      <h4>Terraform Infrastructure Design</h4>
+      <p>Modular IaC systems, environment isolation, and best-practice deployment patterns.</p>
+    </div>
+
+    <div class="build-card">
+      <h4>DevOps Maturity Upgrade</h4>
+      <p>CI/CD transformation, automation frameworks, and operational efficiency improvements.</p>
+    </div>
   </div>
-
-  <!-- REMOTE ROLE -->
-  <div class="experience-item">
-    <h3>ICT In-Country Software Tester (Remote)</h3>
-    <span class="experience-meta">Lionbridge Technologies · Jul 2015 – Present</span>
-    <ul>
-      <li>Performed structured software testing and defect reporting.</li>
-      <li>Worked with distributed global teams following formal QA processes.</li>
-    </ul>
-  </div>
-
-  <!-- PROJECTS -->
-  <div class="experience-item">
-    <h3>Cloud & DevOps Engineering Projects</h3>
-    <span class="experience-meta">
-      AWS · Azure · Terraform · CI/CD · Serverless · CloudOps
-    </span>
-
-    <ul>
-      <li><strong>Cloud-Native Profile Platform</strong> – Static platform using S3, CloudFront, Route 53, HTTPS, and caching.</li>
-      <li><strong>Serverless Visitor Counter</strong> – API Gateway, Lambda, DynamoDB with atomic updates and IAM least privilege.</li>
-      <li><strong>GitHub Actions CI/CD</strong> – Automated frontend and infrastructure deployments.</li>
-      <li><strong>Jenkins CI/CD Pipelines</strong> – Environment-aware pipelines for IaC and deployments.</li>
-      <li><strong>Terraform Secure Foundation</strong> – Reusable modules for VPC, IAM, networking, and security baselines.</li>
-      <li><strong>Modular AWS Architecture</strong> – VPC, ALB, ASG, RDS Multi-AZ, shared IAM.</li>
-      <li><strong>CloudMind AI Ops (PoC)</strong> – AI-assisted monitoring and operational insights using Lambda, CloudWatch, Bedrock/SageMaker.</li>
-      <li><strong>Cloud Security Baseline</strong> – IAM hardening, logging, audit readiness.</li>
-      <li><strong>Hybrid Cloud Automation</strong> – Bridging on-prem infrastructure with AWS & Azure.</li>
-      <li><strong>Engineering Consultancy Platform (SBC)</strong> – Real client system for project tracking and document workflows.</li>
-    </ul>
-  </div>
-
 </section>
 
 <!-- ================= CONTACT ================= -->
-<section id="contact" class="section">
-  <h2 class="section-title">Contact</h2>
+<section id="contact" class="section alt">
+  <h3>Let’s Build Reliable Cloud Systems</h3>
+
   <p>Email: abushihab_330@hotmail.com</p>
-  <p>Location: Abu Dhabi, UAE</p>
+  <p>GitHub: github.com/abinshihab</p>
+  <p>LinkedIn: linkedin.com/in/ahmedbinshehab</p>
+
+  <a href="mailto:abushihab_330@hotmail.com" class="btn primary">Start a Conversation</a>
 </section>
 
-<footer>
-  © 2026 Ahmed Bin Shehab · Cloud & DevOps Engineer
+<footer class="footer">
+  © 2026 Ahmed Bin Shehab · Cloud Architect & DevOps Strategist
 </footer>
 
-<!-- ================= JS ================= -->
+<!-- ================= SCRIPTS ================= -->
 <script>
-  // Skills animation
-  const bars = document.querySelectorAll(".skill-progress");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.width = e.target.dataset.percent + "%";
-      }
-    });
-  }, { threshold: 0.5 });
-  bars.forEach(b => observer.observe(b));
+  /* Visitor Counter (API returns plain text number) */
+  const counterUrl = "https://5vel8a6cz2.execute-api.us-east-1.amazonaws.com/prod/counter";
 
-  // Mobile menu
-  const hamburger = document.getElementById("hamburger");
-  const navMenu = document.getElementById("nav-menu");
-  hamburger.onclick = () => navMenu.classList.toggle("show");
-
-  // Visitor counter
-  fetch("https://YOUR_API_GATEWAY_URL/visit")
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("visitor-count").innerText = data.count;
+  fetch(counterUrl, { cache: "no-store" })
+    .then(res => res.text())
+    .then(count => {
+      document.getElementById("visitor-count").textContent = count;
     })
     .catch(() => {
-      document.getElementById("visitor-count").innerText = "—";
+      document.getElementById("visitor-count").textContent = "—";
     });
+
+  /* Parallax Hero */
+  const hero = document.querySelector(".hero");
+  window.addEventListener("scroll", () => {
+    hero.style.backgroundPositionY = `${window.scrollY * 0.25}px`;
+  });
 </script>
 
 </body>

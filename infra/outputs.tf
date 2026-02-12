@@ -21,3 +21,9 @@ output "lambda_function_url" {
 output "dynamodb_table_name" {
   value = aws_dynamodb_table.counter.name
 }
+output "visitor_api_url" {
+  value = "${aws_apigatewayv2_api.visitor_api.api_endpoint}/prod/counter"
+}
+output "visitor_api_id" {
+  value = aws_apigatewayv2_api.visitor_api.id
+}
