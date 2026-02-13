@@ -14,40 +14,55 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # -------------------------
+      # 1️⃣ Checkout
+      # -------------------------
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # -------------------------
+      # 2️⃣ Configure AWS (OIDC)
+      # -------------------------
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          aws-region: us-east-1
 
       # -------------------------
-      # Deploy Frontend
-      # -------------------------
-      - name: Deploy frontend to S3
-        run: |
-          aws s3 sync frontend/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
-
-      - name: Invalidate CloudFront
-        run: |
-          aws cloudfront create-invalidation \
-            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-            --paths "/*"
-
-      # -------------------------
-      # Terraform Apply (Backend + Infra)
+      # 3️⃣ Setup Terraform
       # -------------------------
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
+      # -------------------------
+      # 4️⃣ Terraform Init
+      # -------------------------
       - name: Terraform Init
         run: |
           cd infra
           terraform init
 
+      # -------------------------
+      # 5️⃣ Terraform Apply (Infra)
+      # -------------------------
       - name: Terraform Apply
         run: |
           cd infra
           terraform apply -auto-approve
+
+      # -------------------------
+      # 6️⃣ Deploy Frontend to S3
+      # -------------------------
+      - name: Deploy frontend to S3
+        run: |
+          aws s3 sync frontend/ s3://www.awsbenshehab.net --delete
+
+      # -------------------------
+      # 7️⃣ Invalidate CloudFront
+      # -------------------------
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id E3E9MYUT3LC84K \
+            --paths "/*"

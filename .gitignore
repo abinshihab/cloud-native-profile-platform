@@ -13,3 +13,7 @@ __pycache__/
 
 # Node (لو استخدمت مستقبلاً)
 node_modules/
+
+*.tfstate
+*.tfstate.backup
+.terraform/

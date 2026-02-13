@@ -1,0 +1,155 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "TerraformStateS3",
+        "Effect": "Allow",
+        "Action": [
+          "s3:ListBucket",
+          "s3:GetBucketLocation"
+        ],
+        "Resource": "arn:aws:s3:::cloud-native-profile-platform-terraform-state"
+      },
+      {
+        "Sid": "TerraformStateObjects",
+        "Effect": "Allow",
+        "Action": [
+          "s3:GetObject",
+          "s3:PutObject",
+          "s3:DeleteObject"
+        ],
+        "Resource": "arn:aws:s3:::cloud-native-profile-platform-terraform-state/*"
+      },
+      {
+        "Sid": "WebsiteBucketDeploy",
+        "Effect": "Allow",
+        "Action": [
+          "s3:ListBucket",
+          "s3:GetBucketLocation",
+          "s3:GetBucketPolicy"
+        ],
+        "Resource": "arn:aws:s3:::www.awsbenshehab.net"
+      },
+      {
+        "Sid": "WebsiteObjectsDeploy",
+        "Effect": "Allow",
+        "Action": [
+          "s3:GetObject",
+          "s3:PutObject",
+          "s3:DeleteObject",
+          "s3:PutObjectAcl",
+          "s3:GetObjectAcl"
+        ],
+        "Resource": "arn:aws:s3:::www.awsbenshehab.net/*"
+      },
+      {
+        "Sid": "DynamoDBStateLockAndProjectTables",
+        "Effect": "Allow",
+        "Action": [
+          "dynamodb:DescribeTable",
+          "dynamodb:GetItem",
+          "dynamodb:PutItem",
+          "dynamodb:DeleteItem",
+          "dynamodb:UpdateItem",
+          "dynamodb:Scan",
+          "dynamodb:Query"
+        ],
+        "Resource": [
+          "arn:aws:dynamodb:us-east-1:991731688366:table/cloud-native-profile-platform-terraform-lock",
+          "arn:aws:dynamodb:us-east-1:991731688366:table/visitor_counter_v2",
+          "arn:aws:dynamodb:us-east-1:991731688366:table/visitors"
+        ]
+      },
+      {
+        "Sid": "CloudFrontInvalidateSpecificDist",
+        "Effect": "Allow",
+        "Action": [
+          "cloudfront:CreateInvalidation",
+          "cloudfront:GetDistribution",
+          "cloudfront:GetDistributionConfig"
+        ],
+        "Resource": "arn:aws:cloudfront::991731688366:distribution/E3E9MYUT3LC84K"
+      },
+      {
+        "Sid": "LambdaForProject",
+        "Effect": "Allow",
+        "Action": [
+          "lambda:GetFunction",
+          "lambda:GetFunctionConfiguration",
+          "lambda:CreateFunction",
+          "lambda:UpdateFunctionCode",
+          "lambda:UpdateFunctionConfiguration",
+          "lambda:DeleteFunction",
+          "lambda:AddPermission",
+          "lambda:RemovePermission",
+          "lambda:TagResource",
+          "lambda:UntagResource",
+          "lambda:CreateFunctionUrlConfig",
+          "lambda:UpdateFunctionUrlConfig",
+          "lambda:DeleteFunctionUrlConfig",
+          "lambda:GetFunctionUrlConfig"
+        ],
+        "Resource": [
+          "arn:aws:lambda:us-east-1:991731688366:function:cloud-native-profile-visitor-counter"
+        ]
+      },
+      {
+        "Sid": "APIGatewayAndLogsForTerraform",
+        "Effect": "Allow",
+        "Action": [
+          "apigateway:GET",
+          "apigateway:POST",
+          "apigateway:PUT",
+          "apigateway:PATCH",
+          "apigateway:DELETE",
+          "logs:CreateLogGroup",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents",
+          "logs:DescribeLogGroups",
+          "logs:DescribeLogStreams"
+        ],
+        "Resource": "*"
+      },
+      {
+        "Sid": "IAMLimitedToProjectPrefix",
+        "Effect": "Allow",
+        "Action": [
+          "iam:CreateRole",
+          "iam:DeleteRole",
+          "iam:UpdateRole",
+          "iam:UpdateAssumeRolePolicy",
+          "iam:TagRole",
+          "iam:UntagRole",
+          "iam:GetRole",
+          "iam:ListRolePolicies",
+          "iam:PutRolePolicy",
+          "iam:DeleteRolePolicy",
+          "iam:AttachRolePolicy",
+          "iam:DetachRolePolicy",
+          "iam:CreatePolicy",
+          "iam:DeletePolicy",
+          "iam:GetPolicy",
+          "iam:GetPolicyVersion",
+          "iam:CreatePolicyVersion",
+          "iam:DeletePolicyVersion",
+          "iam:ListPolicyVersions"
+        ],
+        "Resource": [
+          "arn:aws:iam::991731688366:role/cloud-native-profile-*",
+          "arn:aws:iam::991731688366:policy/cloud-native-profile-*"
+        ]
+      },
+      {
+        "Sid": "PassOnlyLambdaExecutionRole",
+        "Effect": "Allow",
+        "Action": "iam:PassRole",
+        "Resource": "arn:aws:iam::991731688366:role/cloud-native-profile-*",
+        "Condition": {
+          "StringEquals": {
+            "iam:PassedToService": "lambda.amazonaws.com"
+          }
+        }
+      }
+    ]
+  }
+  
