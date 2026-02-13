@@ -6,7 +6,7 @@ on:
       - main
 
 permissions:
-  id-token: write   # Required for OIDC
+  id-token: write
   contents: read
 
 jobs:
@@ -14,15 +14,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # -------------------------
-      # 1. Checkout repository
-      # -------------------------
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # -------------------------
-      # 2. Configure AWS (OIDC)
-      # -------------------------
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -30,34 +24,30 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       # -------------------------
-      # 3. Deploy Frontend (S3)
+      # Deploy Frontend
       # -------------------------
       - name: Deploy frontend to S3
         run: |
           aws s3 sync frontend/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
 
-      # -------------------------
-      # 4. Invalidate CloudFront
-      # -------------------------
-      - name: Invalidate CloudFront cache
+      - name: Invalidate CloudFront
         run: |
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
             --paths "/*"
 
       # -------------------------
-      # 5. Package Lambda
+      # Terraform Apply (Backend + Infra)
       # -------------------------
-      - name: Package Lambda function
-        run: |
-          cd backend/lambda
-          zip function.zip visitor_counter.py
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
 
-      # -------------------------
-      # 6. Deploy Lambda
-      # -------------------------
-      - name: Deploy Lambda function
+      - name: Terraform Init
         run: |
-          aws lambda update-function-code \
-            --function-name ${{ secrets.LAMBDA_FUNCTION_NAME }} \
-            --zip-file fileb://backend/lambda/function.zip
+          cd infra
+          terraform init
+
+      - name: Terraform Apply
+        run: |
+          cd infra
+          terraform apply -auto-approve

@@ -13,12 +13,14 @@ resource "aws_lambda_function" "counter" {
   filename         = data.archive_file.lambda_zip.output_path
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
 
-  environment {
-    variables = {
-      TABLE_NAME = aws_dynamodb_table.counter.name
-      PK_VALUE   = var.dynamodb_pk_value
-    }
+ environment {
+  variables = {
+    COUNTER_TABLE  = aws_dynamodb_table.counter.name
+    VISITORS_TABLE = aws_dynamodb_table.visitors.name
+    PK_VALUE       = var.dynamodb_pk_value
   }
+}
+
 }
 
 resource "aws_lambda_function_url" "counter_url" {
