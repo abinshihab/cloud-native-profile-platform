@@ -10,11 +10,11 @@
         "s3:GetBucketLocation",
         "s3:GetBucketVersioning",
         "s3:GetBucketEncryption",
-        "s3:GetEncryptionConfiguration"
+        "s3:GetEncryptionConfiguration",
+        "s3:GetBucketPolicy"
       ],
-      "Resource": "arn:aws:s3:::cloud-native-profile-platform-terraform-state"
+      "Resource": "arn:aws:s3:::cloud-native-profile-terraform-state"
     },
-
     {
       "Sid": "TerraformBackendS3ObjectAccess",
       "Effect": "Allow",
@@ -23,7 +23,7 @@
         "s3:PutObject",
         "s3:DeleteObject"
       ],
-      "Resource": "arn:aws:s3:::cloud-native-profile-platform-terraform-state/*"
+      "Resource": "arn:aws:s3:::cloud-native-profile-terraform-state/*"
     },
 
     {
@@ -36,7 +36,7 @@
         "dynamodb:DeleteItem",
         "dynamodb:UpdateItem"
       ],
-      "Resource": "arn:aws:dynamodb:us-east-1:991731688366:table/cloud-native-profile-platform-terraform-locks"
+      "Resource": "arn:aws:dynamodb:us-east-1:991731688366:table/cloud-native-profile-terraform-locks"
     },
 
     {
