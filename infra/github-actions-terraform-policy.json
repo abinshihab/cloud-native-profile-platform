@@ -13,7 +13,7 @@
         "s3:GetEncryptionConfiguration",
         "s3:GetBucketPolicy"
       ],
-      "Resource": "arn:aws:s3:::cloud-native-profile-terraform-state"
+      "Resource": "arn:aws:s3:::cloud-native-profile-platform-terraform-state"
     },
     {
       "Sid": "TerraformBackendS3ObjectAccess",
@@ -23,7 +23,7 @@
         "s3:PutObject",
         "s3:DeleteObject"
       ],
-      "Resource": "arn:aws:s3:::cloud-native-profile-terraform-state/*"
+      "Resource": "arn:aws:s3:::cloud-native-profile-platform-terraform-state/*"
     },
 
     {
@@ -34,9 +34,11 @@
         "dynamodb:GetItem",
         "dynamodb:PutItem",
         "dynamodb:DeleteItem",
-        "dynamodb:UpdateItem"
+        "dynamodb:UpdateItem",
+        "dynamodb:DescribeContinuousBackups",
+        "dynamodb:DescribeTimeToLive"
       ],
-      "Resource": "arn:aws:dynamodb:us-east-1:991731688366:table/cloud-native-profile-terraform-locks"
+      "Resource": "arn:aws:dynamodb:us-east-1:991731688366:table/cloud-native-profile-platform-terraform-locks"
     },
 
     {
@@ -49,7 +51,6 @@
       ],
       "Resource": "arn:aws:s3:::www.awsbenshehab.net"
     },
-
     {
       "Sid": "WebsiteObjectAccess",
       "Effect": "Allow",
@@ -72,6 +73,18 @@
         "cloudfront:GetDistributionConfig"
       ],
       "Resource": "arn:aws:cloudfront::991731688366:distribution/E3E9MYUT3LC84K"
+    },
+
+    {
+      "Sid": "CloudFrontOriginAccessControl",
+      "Effect": "Allow",
+      "Action": [
+        "cloudfront:GetOriginAccessControl",
+        "cloudfront:CreateOriginAccessControl",
+        "cloudfront:UpdateOriginAccessControl",
+        "cloudfront:DeleteOriginAccessControl"
+      ],
+      "Resource": "arn:aws:cloudfront::991731688366:origin-access-control/*"
     },
 
     {
@@ -106,7 +119,9 @@
         "dynamodb:DeleteItem",
         "dynamodb:UpdateItem",
         "dynamodb:Scan",
-        "dynamodb:Query"
+        "dynamodb:Query",
+        "dynamodb:DescribeContinuousBackups",
+        "dynamodb:DescribeTimeToLive"
       ],
       "Resource": [
         "arn:aws:dynamodb:us-east-1:991731688366:table/visitor_counter_v2",
