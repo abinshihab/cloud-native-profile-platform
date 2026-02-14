@@ -43,7 +43,7 @@ jobs:
       - name: Terraform Init
         run: |
           cd infra
-          terraform init
+          run: terraform init -reconfigure
 
       # -------------------------
       # 5️⃣ Terraform Apply (Infra)
