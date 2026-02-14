@@ -12,14 +12,16 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
+    
     steps:
-      # -------------------------
-      # 1️⃣ Checkout
-      # -------------------------
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Clear legacy AWS credentials
+        run: |
+          unset AWS_ACCESS_KEY_ID
+          unset AWS_SECRET_ACCESS_KEY
+          unset AWS_SESSION_TOKEN
       # -------------------------
       # 2️⃣ Configure AWS (OIDC)
       # -------------------------
